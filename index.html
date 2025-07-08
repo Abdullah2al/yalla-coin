@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,6 +44,17 @@
     .btn:hover {
       background-color: #eab308;
     }
+    .lang-select {
+      margin: 20px auto;
+    }
+    .lang-select select {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      background: #333;
+      color: #facc15;
+      font-size: 1rem;
+    }
     .socials {
       margin-top: 30px;
     }
@@ -56,20 +69,92 @@
       font-size: 1.1rem;
       color: #ccc;
     }
+    footer {
+      margin-top: 60px;
+      color: #888;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-  <img src="./logo.png" alt="$YALLA Logo" class="logo" />
+  <img src="logo.png" alt="$YALLA Logo" class="logo" />
   <h1>$YALLA</h1>
-  <div class="subtitle">The meme coin that screams: GO, GO, GO!</div>
-  <a href="https://x.com/YALLACoingo?t=mASly90LBmJ7cbObocVljg&s=09" class="btn" target="_blank">Follow on Twitter</a>
-  <a href="#" class="btn" target="_blank">Join Telegram</a>
+
+  <div class="lang-select">
+    <select onchange="changeLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="ar">العربية</option>
+      <option value="tr">Türkçe</option>
+      <option value="id">Bahasa Indonesia</option>
+      <option value="es">Español</option>
+      <option value="zh">中文</option>
+    </select>
+  </div>
+
+  <div class="subtitle" id="subtitle">
+    The meme coin that screams: GO, GO, GO!
+  </div>
+
+  <a href="https://twitter.com/YALLACoingo" class="btn" target="_blank">Follow on Twitter</a>
+  <a href="#" class="btn" target="_blank" id="telegramBtn">Join Telegram</a>
+
   <div class="socials">
     <a href="#">Pump.fun Launch Soon</a>
   </div>
-  <div class="coming-soon">
+
+  <div class="coming-soon" id="coming">
     🚀 Official launch coming soon on pump.fun<br />
     🔒 Liquidity will be locked | 💥 Meme powered | 🐪 Born in the Middle East
   </div>
+
+  <footer>
+    <br /><br />
+    👁️‍🗨️ Visitors:
+    <a href="https://www.hitwebcounter.com" target="_blank">
+      <img src="https://hitwebcounter.com/counter/counter.php?page=9366547&style=0006&nbdigits=5&type=page&initCount=0"
+        title="Visitor Counter" Alt="Visitor Counter" border="0" />
+    </a>
+  </footer>
+
+  <script>
+    const translations = {
+      ar: {
+        subtitle: "عملة ميم تصرخ: يلا، يلا، يلا!",
+        telegramBtn: "انضم إلى التليجرام",
+        coming: "🚀 الإطلاق الرسمي قريبًا على pump.fun<br />🔒 السيولة مقفلة | 💥 مدفوعة بالميم | 🐪 ولدت في الشرق الأوسط"
+      },
+      tr: {
+        subtitle: "GO, GO, GO! diye bağıran meme coin!",
+        telegramBtn: "Telegram'a Katıl",
+        coming: "🚀 pump.fun'da yakında resmi lansman<br />🔒 Likidite kilitli | 💥 Meme gücü | 🐪 Orta Doğu'da doğdu"
+      },
+      id: {
+        subtitle: "Koin meme yang berteriak: GO, GO, GO!",
+        telegramBtn: "Gabung Telegram",
+        coming: "🚀 Peluncuran resmi segera di pump.fun<br />🔒 Likuiditas terkunci | 💥 Digerakkan oleh meme | 🐪 Lahir di Timur Tengah"
+      },
+      es: {
+        subtitle: "¡La moneda meme que grita: VAMOS, VAMOS, VAMOS!",
+        telegramBtn: "Únete a Telegram",
+        coming: "🚀 Lanzamiento oficial pronto en pump.fun<br />🔒 Liquidez bloqueada | 💥 Impulsado por memes | 🐪 Nacido en Medio Oriente"
+      },
+      zh: {
+        subtitle: "尖叫的迷因币：快上！快上！快上！",
+        telegramBtn: "加入电报群",
+        coming: "🚀 即将在 pump.fun 上正式发布<br />🔒 流动性锁定 | 💥 Meme 驱动 | 🐪 诞生于中东"
+      },
+      en: {
+        subtitle: "The meme coin that screams: GO, GO, GO!",
+        telegramBtn: "Join Telegram",
+        coming: "🚀 Official launch coming soon on pump.fun<br />🔒 Liquidity will be locked | 💥 Meme powered | 🐪 Born in the Middle East"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.getElementById('subtitle').innerText = translations[lang].subtitle;
+      document.getElementById('telegramBtn').innerText = translations[lang].telegramBtn;
+      document.getElementById('coming').innerHTML = translations[lang].coming;
+    }
+  </script>
 </body>
 </html>
